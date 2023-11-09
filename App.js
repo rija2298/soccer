@@ -11,6 +11,7 @@ import Tabs from './src/navigation/Tabs';
 import MyProfile from './src/screens/MyProfile';
 import PlayerHome from './src/screens/PlayerHome';
 import PlayerTab from './src/navigation/PlayerTab';
+import SelectedPlayer from './src/screens/SelectedPlayer';
 
 const Stack = createStackNavigator();
 
@@ -25,6 +26,8 @@ const App = () => {
         <Stack.Screen name="MyProfile" component={MyProfile} />
         <Stack.Screen name="PlayerHome" component={PlayerHome} />
         <Stack.Screen name="PlayerTab" component={PlayerTab} />
+        <Stack.Screen name="SelectedPlayer" component={SelectedPlayer} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

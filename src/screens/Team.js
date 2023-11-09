@@ -1,12 +1,23 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet , ImageBackground , TouchableOpacity} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+const avatarUri = 'https://png.pngtree.com/png-clipart/20221015/original/pngtree-brazil-soccer-team-home-jersey-png-image_8696512.png'
+const PlayerCard = ({ player }) => {
+  const navigation = useNavigation();
 
-const PlayerCard = ({ player }) => (
-  <View style={styles.playerCard}>
-    <Image source={{ uri: player.avatar }} style={styles.playerImage} />
-    <Text style={styles.playerName}>{player.name}</Text>
-  </View>
-);
+  const handleAvatarClick = () => {
+    navigation.navigate('SelectedPlayer', { player });
+  };
+
+  return (
+    <TouchableOpacity onPress={handleAvatarClick}>
+      <View style={styles.playerCard}>
+        <Image source={{ uri: avatarUri }} style={styles.playerImage} />
+        <Text style={styles.playerName}>{player.name}</Text>
+      </View>
+    </TouchableOpacity>
+  );
+};
 
 const Team = () => {
   const DATA = [
@@ -179,6 +190,10 @@ const Team = () => {
   ];
 
   return (
+    <ImageBackground
+    source={{ uri: 'https://i.pinimg.com/736x/1a/9b/24/1a9b243122e9db413b716e17988f1156.jpg' }}
+    style={styles.backgroundImage}
+  >
     <View style={styles.playersHome}>
       <View style={styles.formation}>
         <View style={styles.goalkeeper}>
@@ -216,6 +231,7 @@ const Team = () => {
         </View>
       </View>
     </View>
+    </ImageBackground>
   );
 };
 
@@ -259,7 +275,15 @@ const styles = StyleSheet.create({
     borderRadius: 50,
   },
   playerName: {
-    fontSize: 16,
+    fontSize: 14,
+    fontWeight: 'bold',
+    backgroundColor: 'white'
+  },
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

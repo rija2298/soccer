@@ -1,7 +1,7 @@
 // PlayerHome.js
 
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, Button, StyleSheet , ImageBackground} from 'react-native';
 import Demo from './Demo';
 import PlayerTab from '../navigation/PlayerTab';
 
@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     color: 'red',
   },
+
 });
 
 export default PlayerHome;
